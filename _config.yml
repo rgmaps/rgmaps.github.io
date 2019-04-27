@@ -1,2 +1,3 @@
 name: rg, rgmaps
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
