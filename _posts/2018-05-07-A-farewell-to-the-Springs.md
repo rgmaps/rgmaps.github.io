@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Farewell to the Springs"
+description: "lots of good times..."
+comments: true
+keywords: "colorado"
+---
 
 ![](http://randy.micro.blog/uploads/2018/24c89e4390.jpg)
 

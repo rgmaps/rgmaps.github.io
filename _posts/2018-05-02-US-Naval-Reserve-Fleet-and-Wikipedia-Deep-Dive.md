@@ -1,3 +1,11 @@
+---
+layout: post
+title: "US Naval Reserve Fleet and a Wikipedia Deep Dive"
+description: "quite the time sink"
+comments: true
+keywords: "reserve"
+---
+
 ![](http://randy.micro.blog/uploads/2018/e81adf1446.jpg)
 [image source](http://amyheiden.com/suisun-bay-mothball-fleet/)
 
