@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: post
 title: "rgmaps, Launches Site"
 date: 2019-04-26
 ---
