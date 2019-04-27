@@ -1,4 +1,3 @@
-<img src="http://randy.micro.blog/uploads/2018/e81adf1446.jpg" width="600" height="399" />
 ![](http://randy.micro.blog/uploads/2018/e81adf1446.jpg)
 [image source](http://amyheiden.com/suisun-bay-mothball-fleet/)
 
