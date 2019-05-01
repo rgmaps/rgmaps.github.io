@@ -3,7 +3,7 @@ title_left    : "rg"
 title_right   : "maps" # default: ""
 description   : "a personal blog."
 keywords      : "mapping, cad, blog"
-url           : http://rgmaps.com # site url
+url           : https://rgmaps.com # site url
 baseurl       : "" # apply repo name like "/myproject" if used under gh-pages branch, else (under master branch) just leave empty/blank
 cover         : "" # image uri like logo/cover image for site seo
 
