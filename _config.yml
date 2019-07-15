@@ -1,6 +1,6 @@
 # Site settings
-title_left    : "rg"
-title_right   : "maps" # default: ""
+title_left    : "arc"
+title_right   : "minute" # default: ""
 description   : "a personal blog."
 keywords      : "mapping, cad, blog"
 url           : https://rgmaps.com # site url
