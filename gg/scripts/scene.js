@@ -1,10 +1,31 @@
-require([
+require(["esri/Map",
   "esri/views/MapView",
   "esri/views/SceneView",
+  "esri/layers/FeatureLayer",
   "esri/WebMap",
-  "esri/WebScene"
-], function(MapView, SceneView, WebMap, WebScene) {
+  "esri/WebScene",
+  "esri/widgets/Editor"
+], function(Map, MapView, SceneView, FeatureLayer, WebMap, WebScene, Editor) {
   var switchButton = document.getElementById("switch-btn");
+
+  var map = new Map({
+    basemap: "hybrid"
+  });
+
+  var gogPointLayer = new FeatureLayer({
+    portalItem: {
+        id: "4db03b05488544dca370e42d76a62353"},
+  });
+
+  var gogLineLayer = new FeatureLayer({
+    portalItem: {
+        id: "024fc6d76e184c0a88bd6cad7c993fef"},
+  });
+
+  var gogPolyLayer = new FeatureLayer({
+    portalItem: {
+        id: "fcb72f3742854849baec336d94b0334b"},
+  });
 
   var appConfig = {
     mapView: null,
@@ -15,7 +36,7 @@ require([
 
   var initialViewParams = {
     zoom: 12,
-    center: [-122.43759993450347, 37.772798684981126],
+    center: [-104.895, 38.870],
     container: appConfig.container
   };
   var webmap = new WebMap({
@@ -25,14 +46,11 @@ require([
     }
   });
   var scene = new WebScene({
-    portalItem: {
-      // autocasts as new PortalItem()
-      id: "c8cf26d7acab4e45afcd5e20080983c1"
-    }
+
   });
   // create 2D view and and set active
   appConfig.mapView = createView(initialViewParams, "2d");
-  appConfig.mapView.map = webmap;
+  appConfig.mapView.map = map;
   appConfig.activeView = appConfig.mapView;
 
   // create 3D view, won't initialize until container is set
@@ -44,6 +62,10 @@ require([
   switchButton.addEventListener("click", function() {
     switchView();
   });
+
+  map.add(gogPointLayer);
+  map.add(gogLineLayer);
+  map.add(gogPolyLayer);
 
   // Switches the view from 2D to 3D and vice versa
   function switchView() {
@@ -61,11 +83,19 @@ require([
       appConfig.mapView.container = appConfig.container;
       appConfig.activeView = appConfig.mapView;
       switchButton.value = "3D";
+      map.add(gogPointLayer);
+      map.add(gogLineLayer);
+      map.add(gogPolyLayer);
+
+
     } else {
       appConfig.sceneView.viewpoint = activeViewpoint;
       appConfig.sceneView.container = appConfig.container;
       appConfig.activeView = appConfig.sceneView;
       switchButton.value = "2D";
+      scene.add(gogPointLayer);
+      scene.add(gogLineLayer);
+      scene.add(gogPolyLayer);
     }
   }
 
@@ -75,6 +105,12 @@ require([
     var is2D = type === "2d";
     if (is2D) {
       view = new MapView(params);
+            let editor = new Editor({
+        view: view
+      });
+
+      // Add widget to top-right of the view
+      view.ui.add(editor, "top-right");
       return view;
     } else {
       view = new SceneView(params);
