@@ -1,7 +1,7 @@
 # Site settings
 title_left    : "rg"
 title_right   : "maps" # default: ""
-description   : "a personal blog."
+description   : "sure"
 keywords      : "mapping, cad, blog"
 url           : https://rgmaps.com # site url
 baseurl       : "" # apply repo name like "/myproject" if used under gh-pages branch, else (under master branch) just leave empty/blank
