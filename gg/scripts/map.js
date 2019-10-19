@@ -27,3 +27,13 @@ require(["esri/Map",
       // Add widget to top-right of the view
       view.ui.add(editor, "top-right");
   });
+
+
+  var view = new SceneView({
+    container: "viewDiv",
+    map: map,
+    camera: {
+      position: [-104.895, 38.870, 2600],
+      heading: 60,
+      tilt: 63.35
+    },

@@ -9,22 +9,32 @@ require(["esri/Map",
   var switchButton = document.getElementById("switch-btn");
 
   var map = new Map({
-    basemap: "hybrid"
+    basemap: "hybrid",
+    ground: "world-elevation"
   });
 
   var gogPointLayer = new FeatureLayer({
     portalItem: {
         id: "4db03b05488544dca370e42d76a62353"},
+    elevationInfo:{
+      mode: "on-the-ground"
+    }
   });
 
   var gogLineLayer = new FeatureLayer({
     portalItem: {
         id: "024fc6d76e184c0a88bd6cad7c993fef"},
+    elevationInfo:{
+      mode: "on-the-ground"
+    }
   });
 
   var gogPolyLayer = new FeatureLayer({
     portalItem: {
         id: "fcb72f3742854849baec336d94b0334b"},
+    elevationInfo:{
+      mode: "on-the-ground"
+    }
   });
 
   var appConfig = {
@@ -45,9 +55,7 @@ require(["esri/Map",
       id: "7ee3c8a93f254753a83ac0195757f137"
     }
   });
-  var scene = new WebScene({
 
-  });
   // create 2D view and and set active
   appConfig.mapView = createView(initialViewParams, "2d");
   appConfig.mapView.map = map;
@@ -55,7 +63,12 @@ require(["esri/Map",
 
   // create 3D view, won't initialize until container is set
   initialViewParams.container = null;
-  initialViewParams.map = scene;
+  initialViewParams.map = map;
+  initialViewParams.camera = {
+    position: [-104.895, 38.870, 2600],
+    heading: 60,
+    tilt: 63.35
+  };
   appConfig.sceneView = createView(initialViewParams, "3d");
 
   // switch the view between 2D and 3D each time the button is clicked
@@ -93,9 +106,9 @@ require(["esri/Map",
       appConfig.sceneView.container = appConfig.container;
       appConfig.activeView = appConfig.sceneView;
       switchButton.value = "2D";
-      scene.add(gogPointLayer);
+/*       scene.add(gogPointLayer);
       scene.add(gogLineLayer);
-      scene.add(gogPolyLayer);
+      scene.add(gogPolyLayer); */
     }
   }
 
