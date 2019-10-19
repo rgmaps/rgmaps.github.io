@@ -1,0 +1,43 @@
+body{
+    background-color: white;
+}
+
+.top img {
+    float: left;
+    width: 10px;
+    height: 10px;
+    background: #555;
+  }
+  
+.top h1 {
+    position: relative;
+    top: 18px;
+    left: 10px;
+  }
+
+#top{
+    background-color: black;
+    color: whitesmoke;
+    height: 10vh;
+}
+
+#map{
+    background-color: blueviolet;
+    height: 85vh;
+    width: 80%;
+    float: left;
+}
+
+#contents{
+    background-color: springgreen;
+    height: 85vh;
+    width: 20%;
+    float: right;
+}
+
+#foot{
+    background-color: red;
+}
+
+
+
