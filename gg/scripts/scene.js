@@ -1,9 +1,10 @@
 require(["esri/Map",
-        "esri/views/MapView",
+        "esri/views/SceneView",
         "esri/layers/FeatureLayer",
-        "esri/widgets/Editor"], function(Map, MapView, FeatureLayer, Editor) {
+        "esri/widgets/Editor"], function(Map, SceneView, FeatureLayer, Editor) {
     var map = new Map({
-      basemap: "hybrid"
+      basemap: "hybrid",
+      ground: "world-elevation"
     });
 
     var gogLayer = new FeatureLayer({
@@ -11,11 +12,14 @@ require(["esri/Map",
             id: "eb33faecd2724508bf6c7e35bebc314e"}
     });
 
-    var view = new MapView({
+    var view = new SceneView({
       container: "viewDiv",
       map: map,
-      scale: 2000,
-      center: [-104.895, 38.870]
+      camera: {
+        position: [-104.895, 38.870, 2600],
+        heading: 60,
+        tilt: 63.35
+      },
 
     });
     map.add(gogLayer);
