@@ -2,10 +2,13 @@ require([
     "esri/Map",
     "esri/views/MapView",
     "esri/views/SceneView",
-    "esri/core/watchUtils"
-  ], function(Map, MapView, SceneView, watchUtils) {
+    "esri/core/watchUtils",
+    "esri/layers/FeatureLayer",
+    "esri/widgets/Editor",
+    "esri/widgets/Legend"
+  ], function(Map, MapView, SceneView, watchUtils, FeatureLayer, Editor, Legend) {
     var map = new Map({
-      basemap: "satellite",
+      basemap: "hybrid",
       ground: "world-elevation"
     });
 
@@ -25,12 +28,61 @@ require([
       container: "view2Div",
       map: map,
       center: [-104.879, 38.879],
-      zoom: 18,
+      zoom: 16,
       constraints: {
         // Disable zoom snapping to get the best synchronization
         snapToZoom: false
       }
     });
+
+    // add feature layers to variable
+    var gogPointLayer = new FeatureLayer({
+        portalItem: {
+            id: "4db03b05488544dca370e42d76a62353"},
+        elevationInfo:{
+          mode: "on-the-ground"
+        }
+      });
+    
+      var gogLineLayer = new FeatureLayer({
+        portalItem: {
+            id: "024fc6d76e184c0a88bd6cad7c993fef"},
+        elevationInfo:{
+          mode: "on-the-ground"
+        }
+      });
+    
+      var gogPolyLayer = new FeatureLayer({
+        portalItem: {
+            id: "fcb72f3742854849baec336d94b0334b"},
+        elevationInfo:{
+          mode: "on-the-ground"
+        }
+      });
+
+      //add feature layers to map
+      map.add(gogPointLayer);
+      map.add(gogLineLayer);
+      map.add(gogPolyLayer);
+
+      //create editor widget
+      let editor = new Editor({
+        view: view2
+      });
+
+      // Add widget to top-right of the view
+      view2.ui.add(editor, "top-right");
+
+      //add legend to view
+      var legend = new Legend({
+        view: view1,
+        layerInfos: [{
+          layer: gogLineLayer,
+          title: "Legend"
+        }]
+      });
+      
+      view.ui.add(legend, "bottom-right");
 
     /**
      * utility method that synchronizes the viewpoint of a view to other views
