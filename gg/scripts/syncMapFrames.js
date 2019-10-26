@@ -1,39 +1,8 @@
-require([
-    "esri/Map",
-    "esri/views/MapView",
-    "esri/views/SceneView",
-    "esri/core/watchUtils"
-  ], function(Map, MapView, SceneView, watchUtils) {
-    var map = new Map({
-      basemap: "satellite",
-      ground: "world-elevation"
-    });
-
-    var view1 = new SceneView({
-      id: "view1",
-      container: "view1Div",
-      map: map,
-      camera: {
-        position: [-104.895, 38.870, 2600],
-        heading: 60,
-        tilt: 63.35
-      },
-    });
-
-    var view2 = new MapView({
-      id: "view2",
-      container: "view2Div",
-      map: map,
-      center: [-104.879, 38.879],
-      zoom: 18,
-      constraints: {
-        // Disable zoom snapping to get the best synchronization
-        snapToZoom: false
-      }
-    });
-
-    /**
+  /**
      * utility method that synchronizes the viewpoint of a view to other views
+     * credit for the majority of this code goes to the ArcGIS Developers Guide,
+     * this specific example can be found here:
+     * https://developers.arcgis.com/javascript/latest/sample-code/layers-scenelayer/index.html
      */
     var synchronizeView = function(view, others) {
       others = Array.isArray(others) ? others : [others];
@@ -130,4 +99,4 @@ require([
 
     // bind the views
     synchronizeViews([view1, view2]);
-  });
+  
