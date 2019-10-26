@@ -12,6 +12,7 @@ require(["esri/Map",
     basemap: "hybrid",
     ground: "world-elevation"
   });
+  
 
   var gogPointLayer = new FeatureLayer({
     portalItem: {
