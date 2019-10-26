@@ -49,10 +49,15 @@ require(["esri/Map",
     center: [-104.895, 38.870],
     container: appConfig.container
   };
-
+  var webmap = new WebMap({
+    portalItem: {
+      // autocasts as new PortalItem()
+      id: "7ee3c8a93f254753a83ac0195757f137"
+    }
+  });
 
   // create 2D view and and set active
-  appConfig.mapView = createView(initialViewParams, "3d");
+  appConfig.mapView = createView(initialViewParams, "2d");
   appConfig.mapView.map = map;
   appConfig.activeView = appConfig.mapView;
 
@@ -64,8 +69,7 @@ require(["esri/Map",
     heading: 60,
     tilt: 63.35
   };
-  
-  appConfig.sceneView = createView(initialViewParams, "2d");
+  appConfig.sceneView = createView(initialViewParams, "3d");
 
   // switch the view between 2D and 3D each time the button is clicked
   switchButton.addEventListener("click", function() {
@@ -85,16 +89,6 @@ require(["esri/Map",
     appConfig.activeView.container = null;
 
     if (is3D) {
-      appConfig.sceneView.viewpoint = activeViewpoint;
-      appConfig.sceneView.container = appConfig.container;
-      appConfig.activeView = appConfig.sceneView;
-      switchButton.value = "2D";
-/*       scene.add(gogPointLayer);
-      scene.add(gogLineLayer);
-      scene.add(gogPolyLayer); */
-
-
-    } else {
       // if the input view is a SceneView, set the viewpoint on the
       // mapView instance. Set the container on the mapView and flag
       // it as the active view
@@ -105,6 +99,16 @@ require(["esri/Map",
       map.add(gogPointLayer);
       map.add(gogLineLayer);
       map.add(gogPolyLayer);
+
+
+    } else {
+      appConfig.sceneView.viewpoint = activeViewpoint;
+      appConfig.sceneView.container = appConfig.container;
+      appConfig.activeView = appConfig.sceneView;
+      switchButton.value = "2D";
+/*       scene.add(gogPointLayer);
+      scene.add(gogLineLayer);
+      scene.add(gogPolyLayer); */
     }
   }
 
