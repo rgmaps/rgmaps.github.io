@@ -4,9 +4,8 @@ require([
     "esri/views/SceneView",
     "esri/core/watchUtils",
     "esri/layers/FeatureLayer",
-    "esri/widgets/Editor",
-    "esri/widgets/Legend"
-  ], function(Map, MapView, SceneView, watchUtils, FeatureLayer, Editor, Legend) {
+    "esri/widgets/Editor"
+  ], function(Map, MapView, SceneView, watchUtils, FeatureLayer, Editor) {
     var map = new Map({
       basemap: "hybrid",
       ground: "world-elevation"
@@ -72,17 +71,6 @@ require([
 
       // Add widget to top-right of the view
       view2.ui.add(editor, "top-right");
-
-      //add legend to view
-      var legend = new Legend({
-        view: view1,
-        layerInfos: [{
-          layer: gogLineLayer,
-          title: "Legend"
-        }]
-      });
-      
-      view.ui.add(legend, "bottom-right");
 
     /**
      * utility method that synchronizes the viewpoint of a view to other views
