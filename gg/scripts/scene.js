@@ -4,8 +4,10 @@ require([
     "esri/views/SceneView",
     "esri/core/watchUtils",
     "esri/layers/FeatureLayer",
-    "esri/widgets/Editor"
-  ], function(Map, MapView, SceneView, watchUtils, FeatureLayer, Editor) {
+    "esri/widgets/Editor",
+    "esri/widgets/Home",
+    "esri/widgets/Legend"
+  ], function(Map, MapView, SceneView, watchUtils, FeatureLayer, Editor, Home, Legend) {
     var map = new Map({
       basemap: "hybrid",
       ground: "world-elevation"
@@ -72,6 +74,36 @@ require([
       // Add widget to top-right of the view
       view2.ui.add(editor, "top-right");
 
+      //add home button
+      var homeBtn = new Home({
+        view: view1
+      });
+
+      // Add the home button to the top left corner of the view
+      view1.ui.add(homeBtn, "top-left");
+
+      //add legend to scene view only
+      var legend = new Legend({
+        view: view1,
+        layerInfos: [
+          {
+            layer: gogLineLayer,
+            title: "Roads and Trails"
+          },
+          {
+            layer: gogPointLayer,
+            title: "Attractions"
+          },
+          {
+            layer: gogPolyLayer,
+            title: "Areas"
+          }
+        ]
+      });
+      legend.style = "card";
+
+      // Add widget to the bottom right corner of the view
+      view1.ui.add(legend, "bottom-right");
     /**
      * utility method that synchronizes the viewpoint of a view to other views
      */
