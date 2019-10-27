@@ -14,7 +14,7 @@ header{
   border: 1px black solid;
   color: white;
   background-color: black;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #viewDiv {
@@ -50,6 +50,31 @@ main {
   grid-template-rows: calc(100vh - 60px - 50px) 50px calc(100vh - 60px - 50px);
   grid-template-areas: "map" "toggle" "list";
 }
+
+#left{
+  width: 100%;
+  height: 5%;
+  background-color: wheat;
+  justify-content: right;
+}
+
+#button1 , #button2 {
+  display:inline-block;
+  /**other codes**/
+  background-color: black; /* Green */
+  border: none;
+  color: white;
+  padding: 3px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  }
+
 
 @media (min-width: 6000px) {
   main {

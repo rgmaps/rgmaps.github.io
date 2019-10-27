@@ -104,6 +104,7 @@ require([
 
       // Add widget to the bottom right corner of the view
       view1.ui.add(legend, "bottom-right");
+      
     /**
      * utility method that synchronizes the viewpoint of a view to other views
      */
@@ -202,4 +203,16 @@ require([
 
     // bind the views
     synchronizeViews([view1, view2]);
+
+    var legendStatus = 1
+    document.getElementById('button1').onclick = function(){
+      if (legendStatus == 1){
+        view1.ui.remove(legend);
+        legendStatus = 0
+      }
+      else{
+        view1.ui.add(legend, "bottom-right");
+        legendStatus = 1
+      }
+  };
   });
