@@ -35,6 +35,13 @@ require([
         snapToZoom: false
       }
     });
+    var gogPointLayerInit = new FeatureLayer({
+      portalItem: {
+          id: "9de11ff5356140318deffd61d5ad6c92"},
+      elevationInfo:{
+        mode: "on-the-ground"
+      }});
+
 
     // add feature layers to variable
     var gogPointLayer = new FeatureLayer({
@@ -42,7 +49,72 @@ require([
             id: "4db03b05488544dca370e42d76a62353"},
         elevationInfo:{
           mode: "on-the-ground"
-        }
+        },
+        returnZ: false,
+        // Select peaks higher than 3000m
+        title: "Points of Interest",
+        // Set a renderer that will show the points with icon symbols
+        renderer: {
+          type: "simple", // autocasts as new SimpleRenderer()
+          symbol: {
+            type: "point-3d", // autocasts as new PointSymbol3D()
+            symbolLayers: [
+              {
+                type: "icon", // autocasts as new IconSymbol3DLayer()
+                resource: {
+                  primitive: "circle"
+                },
+                material: {
+                  color: "black"
+                },
+                size: 4
+              }
+            ]
+          }
+        },
+        outFields: ["*"],
+        // Add labels with callouts of type line to the icons
+        labelingInfo: [
+          {
+            // When using callouts on labels, "above-center" is the only allowed position
+            labelPlacement: "above-center",
+            labelExpressionInfo: {
+              value: "{NAME}"
+            },
+            symbol: {
+              type: "label-3d", // autocasts as new LabelSymbol3D()
+              symbolLayers: [
+                {
+                  type: "text", // autocasts as new TextSymbol3DLayer()
+                  material: {
+                    color: "black"
+                  },
+                  halo: {
+                    color: [255, 255, 255, 0.7],
+                    size: 2
+                  },
+                  size: 10
+                }
+              ],
+              // Labels need a small vertical offset that will be used by the callout
+              verticalOffset: {
+                screenLength: 80,
+                maxWorldLength: 200,
+                minWorldLength: 30
+              },
+              // The callout has to have a defined type (currently only line is possible)
+              // The size, the color and the border color can be customized
+              callout: {
+                type: "line", // autocasts as new LineCallout3D()
+                size: 0.5,
+                color: [0, 0, 0],
+                border: {
+                  color: [255, 255, 255, 0.7]
+                }
+              }
+            }
+          }
+        ]
       });
     
       var gogLineLayer = new FeatureLayer({
@@ -63,6 +135,7 @@ require([
 
       //add feature layers to map
       map.add(gogPointLayer);
+      map.add(gogPointLayerInit)
       map.add(gogLineLayer);
       map.add(gogPolyLayer);
 
