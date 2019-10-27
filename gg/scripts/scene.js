@@ -103,7 +103,8 @@ require([
       legend.style = "card";
 
       // Add widget to the bottom right corner of the view
-      view1.ui.add(legend, "bottom-right");
+      
+      
       
     /**
      * utility method that synchronizes the viewpoint of a view to other views
@@ -203,16 +204,19 @@ require([
 
     // bind the views
     synchronizeViews([view1, view2]);
+    view1.ui.add("logoDiv", "bottom-right");
 
-    var legendStatus = 1
+    var legendStatus = 0
     document.getElementById('button1').onclick = function(){
       if (legendStatus == 1){
         view1.ui.remove(legend);
-        legendStatus = 0
+        legendStatus = 0;
+        document.getElementById("button1").innerHTML = "&#9776;";
       }
       else{
         view1.ui.add(legend, "bottom-right");
-        legendStatus = 1
+        legendStatus = 1;
+        document.getElementById("button1").innerHTML = "&#10140;"
       }
   };
   });

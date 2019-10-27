@@ -2,6 +2,7 @@ html, body {
   width: 100vw;
   margin: 0;
   padding: 0;
+  background-color: wheat;
 }
 
 body {
@@ -53,28 +54,56 @@ main {
 
 #left{
   width: 100%;
-  height: 5%;
+  height: 3%;
   background-color: wheat;
   justify-content: right;
+  padding-left: 2%;
+  display: table-cell; 
+  vertical-align: middle;
 }
 
-#button1 , #button2 {
+#button1 {
   display:inline-block;
   /**other codes**/
   background-color: black; /* Green */
   border: none;
   color: white;
-  padding: 3px 32px;
+  padding: 2px 13px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
   margin: 4px 2px;
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   }
 
+  #button2 {
+    display:inline-block;
+    /**other codes**/
+    background-color: black; /* Green */
+    border: none;
+    color: white;
+    padding: 1% 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    }
+
+  #logoDiv {
+    padding: 1px;
+    background-color: black;
+    color: pink;
+    text-align: center;
+    width: 50px;
+  }
+  
 
 @media (min-width: 6000px) {
   main {
