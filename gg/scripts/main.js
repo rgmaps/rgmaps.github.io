@@ -12,7 +12,9 @@ toggleBtnEl.addEventListener('click', () => {
   const scrollOpts = { behavior: 'smooth' }
   if (isScrolledUp) {
     listEl.scrollIntoView(scrollOpts)
+    document.getElementById("togglebutton").innerHTML = "<h3> &crarr; &nbsp; Return to 3D</h3>"
   } else {
     mapEl.scrollIntoView(scrollOpts)
+    document.getElementById("togglebutton").innerHTML = "<h3>&plus; &nbsp;Add to this map </h3>"
   }
 })
