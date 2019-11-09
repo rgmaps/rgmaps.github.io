@@ -1,13 +1,15 @@
 require([
     "esri/Map",
+    "esri/widgets/Track",
     "esri/views/MapView",
     "esri/views/SceneView",
     "esri/core/watchUtils",
     "esri/layers/FeatureLayer",
     "esri/widgets/Editor",
     "esri/widgets/Home",
-    "esri/widgets/Legend"
-  ], function(Map, MapView, SceneView, watchUtils, FeatureLayer, Editor, Home, Legend) {
+    "esri/widgets/Legend",
+    "esri/widgets/Search"
+  ], function(Map, Track, MapView, SceneView, watchUtils, FeatureLayer, Editor, Home, Legend, Search) {
     var map = new Map({
       basemap: "hybrid",
       ground: "world-elevation"
@@ -23,6 +25,12 @@ require([
         tilt: 63.35
       },
     });
+
+    var search = new Search({
+      view: view1
+    });
+
+    view1.ui.add(search, "top-right");
 
     var view2 = new MapView({
       id: "view2",
@@ -139,6 +147,17 @@ require([
       map.add(gogLineLayer);
       map.add(gogPolyLayer);
 
+      search.sources.push({
+        layer: gogPointLayer,
+        searchFields: ["Name"],
+        displayField: "Name",
+        exactMatch: false,
+        outFields: ["Name", "Type"],
+        resultGraphicEnabled: true,
+        name: "Points of Interest",
+        placeholder: "Example: Climbing Wall",
+      });
+
       //create editor widget
       let editor = new Editor({
         view: view2
@@ -176,9 +195,13 @@ require([
       legend.style = "card";
 
       // Add widget to the bottom right corner of the view
+      var track = new Track({
+        view: view1
+      });
+      view1.ui.add(track, "top-left");
+
       
-      
-      
+
     /**
      * utility method that synchronizes the viewpoint of a view to other views
      */
@@ -253,6 +276,7 @@ require([
         }
       };
     };
+    
 
     /**
      * utility method that synchronizes the viewpoints of multiple views
