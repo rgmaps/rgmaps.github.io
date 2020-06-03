@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+<channel>
+<title>Portside Sleep</title>
+<link>http://www.rgmaps.com/<link>
+<language>en-us</language>
+<itunes:subtitle>12 Hours of Sleep</itunes:subtitle>
+<itunes:author>Randy Garcia</itunes:author>
+<itunes:summary>12 hours of white noise. Took a clip off the internet and looped with with audacity. Sleep well. </itunes:summary>
+<description>12 hours of white noise. Took a clip off the internet and looped with with audacity. Sleep well. </description>
+<itunes:owner>
+    <itunes:name>Randy Garcia</itunes:name>
+    <itunes:email>randy@rloop.net</itunes:email>
+</itunes:owner>
+<itunes:explicit>no</itunes:explicit>
+<itunes:image href="https://www.the3rdsequence.com/texturedb/download/23/texture/png/256/sea+water-256x256.png" />
+<itunes:category text="Category Name"/></itunes:category>
+
+<!--REPEAT THIS BLOCK FOR EACH EPISODE-->
+<item>
+    <title>12 Hours of Brown Noise</title>
+    <itunes:summary>12 Hours of Brown Noise. Hope you sleepwell</itunes:summary>
+    <description>12 Hours of brown noise. Sleep well</description>
+    <link>rgmaps.com</link>
+    <enclosure url="https://rgmaps.com/assets/audio/WNShort.mp3" type="audio/mpeg" length="1024"></enclosure>
+    <pubDate>Thu, 2 Mar 2020 16:01:07 +0000</pubDate>
+    <itunes:author>Randy Garcia</itunes:author>
+    <itunes:duration>00:05:16</itunes:duration>
+    <itunes:explicit>no</itunes:explicit>
+    <guid>http://rgmaps.com</guid>
+</item> 
+<!--END REPEAT--> 
+   
+</channel>
+</rss>
