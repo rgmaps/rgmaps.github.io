@@ -10,10 +10,10 @@ I spent about 4 years taking photos professionally for the Air Force. Before thi
 
  I might sounds a bit cynical, but I truly want to get back into it. I have the stuff at my fingertips. Here is what I have:
 
- [FUJI XT-20](https://fujifilm-x.com/global/products/cameras/x-t20/)
+ [FUJI X-T20](https://fujifilm-x.com/global/products/cameras/x-t20/)
  ![](https://fujifilm-x.com/wp-content/uploads/2019/10/x-t20_overview-feature03.jpg)
 
  I spent my professional career shooting with Canon, I owned a 7D, and I loved it. I miss it. 
- I purchased the fuji with the hopes of having a more compact camera, and it accomplished that but I can't say I love it. But I think I will get past that, I think it still is just unfamiliar. 
+ I purchased the fuji with the hopes of having a more compact camera, and it accomplished that but I can't say I love it. But I think I will get past that, its just unfamiliar. 
 
  I'll try and post some photos here...but I have a baby coming soon and who knows what my motivation will be like. 
